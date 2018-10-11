@@ -5,7 +5,7 @@ using namespace std;
 // create testcase.txt
 
 int main(){
-    ofstream fout("testcase.txt");
+    ofstream fout("matrix.data");
     int row,col;
     cout << "Row: ";
     cin >> row;
@@ -48,5 +48,5 @@ int main(){
         fout << "\n";
     }
     fout.close();
-    cout << "testcase.txt genarated." << endl;
+    cout << "matrix.data genarated." << endl;
 }

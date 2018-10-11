@@ -10,7 +10,7 @@ struct answer{
 
 int main(){
     ifstream fin;
-    fin.open("testcase.txt");
+    fin.open("matrix.data");
     if(!fin) return 1;
     int row,col;
     fin >> row;
