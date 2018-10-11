@@ -2,11 +2,27 @@
 #include <fstream>
 using namespace std;
 
-struct answer{
-    int peak_num;
-    int peak_r[100];
-    int peak_c[100];
-};
+int FindPeak(int a[][],int RowNum ,int ColNum){
+    int i,j,k;
+    k=1;
+    int temp[RowNum*ColNum][2];
+    for (i=0;i<RowNum;++i){
+        for (j=0;j<RowNum;++j){
+            if(a[i][j]>=a[i][j+1] && a[i][j]>=a[i][j-1]){
+                temp[k][0]=i;
+                temp[k][1]=j;
+                k++;
+            }
+        }
+    }
+    for (i=0;i<k;++i){
+        if(a[ temp[k][0] ][ temp [k][1] ])>a[ temp[k][0] +1 ][ temp [k][1]  ] &&
+        a[ temp[k][0] ][ temp [k][1] ])>a[ temp[k][0] -1 ][ temp [k][1]  ]){
+            temp2[k][0]=temp[k][0];
+            te
+        }
+    }
+}
 
 int main(){
     ifstream fin;
@@ -23,26 +39,6 @@ int main(){
         }
     }
     fin.close();
-    int result[row][col];
-     for(i=0;i<row;++i){
-        for(j=0;j<col;++j){
-            if(matrix[i][j]>matrix[i+1][j] && matrix[i][j]>matrix[i-1][j] 
-            && matrix[i][j]>matrix[i][j+1] && matrix[i][j]>matrix[i][j-1]){
-                result[i][j]=1;
-            }
-            else result[i][j]=0;
-        }
-    }
-    /*
-    cout << "Result Matrix:"<<endl;
-    for(i=0;i<row;++i){
-        for(j=0;j<col;++j){
-            cout << result[i][j];
-            cout << ' ';
-        }
-        cout << "\n";
-    }
-    */
     ofstream fout;
     fout.open("final.peak");
     struct answer ans;
