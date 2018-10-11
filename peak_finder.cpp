@@ -1,12 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
 using namespace std;
-
-# define INF 100000000
 
 class Solution{
     public:
+    void getID(char*);
     void InputData();
     void FindPeak();
     void PrintResult();
@@ -17,11 +17,12 @@ class Solution{
     vector<int> temp_col;
     vector<int> peak_row;
     vector<int> peak_col;
+    string stu_id;
 };
 
 void Solution::InputData(){
     ifstream fin;
-    fin.open("matrix.data");
+    fin.open(stu_id+"/matrix.data");
     fin >> row;
     fin >> col;
     mat.resize(row,vector<int>(col,0));
@@ -78,14 +79,22 @@ void Solution::FindPeak(){
 }
 
 void Solution::PrintResult(){
-    cout << peak_row.size() << endl;
+    ofstream fout;
+    fout.open(stu_id+"/final.peak");
+    fout << peak_row.size() << endl;
     for(int i=0;i<peak_row.size();++i){
-        cout << peak_row[i] +1 << ' ' << peak_col[i] +1 << endl;
+        fout << peak_row[i] +1 << ' ' << peak_col[i] +1 << endl;
     }
+    fout.close();
 }
 
-int main(){
+void Solution::getID(char* a){
+    stu_id=a;
+}
+
+int main(int argc, char *argv[]){
     Solution sol;
+    sol.getID(argv[1]);
     sol.InputData();
     sol.FindPeak();
     sol.PrintResult();
