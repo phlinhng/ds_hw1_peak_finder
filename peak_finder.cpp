@@ -1,3 +1,8 @@
+/*
+Assignment1: Peak Finder
+DSRST, 2018 Fall, NTHU
+Coded by PH Lin
+*/
 #include <iostream>
 #include <fstream>
 #include <vector>
